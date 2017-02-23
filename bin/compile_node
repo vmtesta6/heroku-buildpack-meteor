@@ -38,7 +38,7 @@ node_engine="7.4.0"
 node_previous=$(file_contents "$cache_dir/node/node-version")
 
 # What's the requested semver range for npm?
-npm_engine=$(package_json ".engines.npm")
+npm_engine="4.2.0"
 npm_previous=$(file_contents "$cache_dir/node/npm-version")
 
 # How does this app start?
