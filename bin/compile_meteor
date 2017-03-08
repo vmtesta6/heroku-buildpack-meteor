@@ -2,7 +2,7 @@
 # USAGE: bin/compile_meteor <build-dir> <cache-dir> <env-dir>
 
 ####### Configure environment
-
+set -x
 set -e  # fail fast
 
 ###### NEEDED VARIABLES/DIRECTORIES
@@ -63,7 +63,7 @@ build() {
     set -e  # back to failing if any command fails
     meteor build ../build --directory 2>&1 | indent
     head "Installing App's NPM Dependencies"
-    (cd ../build/bundle/programs/server && npm install 2>&1 | indent)
+    (cd ../build/bundle/programs/server && sudo npm install 2>&1 | indent)
     cd $BUILD_DIR && rm -rf $APP_SOURCE
   )
 }
